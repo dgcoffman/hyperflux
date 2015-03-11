@@ -4,6 +4,7 @@ const ActionCreator = require('../actions/TodoActionCreators');
 const Button = require('react-bootstrap/lib/Button');
 const Jumbotron = require('react-bootstrap/lib/Jumbotron');
 const TaskList = require('./TaskList.jsx');
+const FileUploader = require('./FileUploader.jsx');
 
 let App = React.createClass({
 
@@ -41,11 +42,7 @@ let App = React.createClass({
     return (
       <div className="container">
         <Jumbotron>
-          <h1>Learning Flux</h1>
-          <p>
-            Below is a list of tasks you can implement to better grasp the patterns behind Flux.<br />
-            Most features are left unimplemented with clues to guide you lol.
-          </p>
+          <FileUploader />
         </Jumbotron>
 
         <TaskList tasks={tasks} />

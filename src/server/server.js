@@ -1,13 +1,10 @@
-/*Define dependencies.*/
-
 var express = require("express");
 var multer = require('multer');
 var app = express();
 var done = false;
 
-console.log(__dirname);
+// Serve root as static content
 app.use('/', express.static(__dirname + '/../../dist/'));
-
 
 app.use(multer({
   dest: './uploads/',
@@ -23,12 +20,6 @@ app.use(multer({
   }
 }));
 
-/*Handling routes.*/
-
-//app.get('/', function (req, res) {
-//  res.sendFile("index.html", {root: "dist"});
-//});
-
 app.post('/api/photo', function (req, res) {
   if (done == true) {
     console.log(req.files);
@@ -36,7 +27,6 @@ app.post('/api/photo', function (req, res) {
   }
 });
 
-/*Run the server.*/
 app.listen(3000, function () {
   console.log("Working on port 3000");
 });
