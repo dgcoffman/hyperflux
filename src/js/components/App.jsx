@@ -44,7 +44,7 @@ let App = React.createClass({
           <h1>Learning Flux</h1>
           <p>
             Below is a list of tasks you can implement to better grasp the patterns behind Flux.<br />
-            Most features are left unimplemented with clues to guide you on the learning process.
+            Most features are left unimplemented with clues to guide you lol.
           </p>
         </Jumbotron>
 

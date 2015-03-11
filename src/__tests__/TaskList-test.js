@@ -9,8 +9,9 @@ describe('TaskList', function () {
     var taskListComponent = TestUtils.renderIntoDocument(
       <TaskList />
     );
-    var taskList = TestUtils.scryRenderedDOMComponentsWithTag(taskListComponent, 'Alert');
-    console.log(taskList);
-    expect(taskList).toBeDefined();
+    var alertBox = TestUtils.findRenderedDOMComponentWithClass(taskListComponent, 'alert');
+    //console.log(alertBox.getDOMNode());
+    expect(alertBox).toBeDefined();
+    expect(alertBox).toBeDefined();
   });
 });
