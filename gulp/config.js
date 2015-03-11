@@ -13,27 +13,27 @@ module.exports = {
     }
   },
   sass: {
-    src: src + '/styles/**/*.{sass,scss,css}',
+    src: src + '/client/styles/**/*.{sass,scss,css}',
     dest: dest + '/styles',
     settings: {
       indentedSyntax: false, // Enable .sass syntax?
-      imagePath: '/images' // Used by the image-url helper
+      imagePath: '/client/images' // Used by the image-url helper
     }
   },
   browserify: {
     settings: {
       transform: ['reactify', 'babelify']
     },
-    src: src + '/js/index.jsx',
+    src: src + '/client/js/index.jsx',
     dest: dest + '/js',
-    outputName: 'index.js',
+    outputName: 'index.js'
   },
   html: {
-    src: 'src/index.html',
+    src: 'src/client/index.html',
     dest: dest
   },
   watch: {
-    src: 'src/**/*.*',
+    src: 'src/client/**/*.*',
     tasks: ['build']
   }
 };

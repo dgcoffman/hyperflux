@@ -1,9 +1,9 @@
-jest.dontMock('../js/components/App.jsx');
+jest.dontMock('../../client/js/components/App.jsx');
 
 describe('App', function () {
   it('should have a task list with two buttons', function () {
     var React = require('react/addons');
-    var App = require('../js/components/App.jsx');
+    var App = require('../../client/js/components/App.jsx');
     var TestUtils = React.addons.TestUtils;
 
     var app = TestUtils.renderIntoDocument(
