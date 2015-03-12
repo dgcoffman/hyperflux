@@ -35,5 +35,8 @@ module.exports = {
   watch: {
     src: 'src/client/**/*.*',
     tasks: ['build']
+  },
+  jshint: {
+    src: ['src/**/*.{js,jsx}']
   }
 };
