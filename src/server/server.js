@@ -1,4 +1,4 @@
-var express = require("express");
+var express = require('express');
 var multer = require('multer');
 var app = express();
 var done = false;
@@ -17,7 +17,7 @@ app.use(multer({
       validRequest = true;
     }
   },
-  onFileUploadComplete: function (file) {
+  onFileUploadComplete: function () {
     done = true;
   }
 }));
@@ -31,13 +31,13 @@ app.post('/upload', function (req, res) {
     res.status(400).send('Invalid file type');
   }
 
-  if (done == true) {
-    res.end("File uploaded.");
+  if (done === true) {
+    res.end('File uploaded.');
   }
 });
 
 app.listen(3000, function () {
-  console.log("Working on port 3000");
+  console.log('Working on port 3000');
 });
 
 module.exports = app;

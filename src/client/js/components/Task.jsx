@@ -23,7 +23,7 @@ let Task = React.createClass({
     let {task} = this.props;
     return (
       <ListGroupItem>
-        <Input type="checkbox" ref="checkbox" checked={task.completed}
+        <Input type='checkbox' ref='checkbox' checked={task.completed}
           onChange={this.handleToggle.bind(this, task)} label={task.title} />
       </ListGroupItem>
     );

@@ -1,9 +1,6 @@
 const React = require('react');
 const TodoStore = require('../stores/TodoStore');
 const ActionCreator = require('../actions/TodoActionCreators');
-const Button = require('react-bootstrap/lib/Button');
-const Jumbotron = require('react-bootstrap/lib/Jumbotron');
-const TaskList = require('./TaskList.jsx');
 const FileUploader = require('./FileUploader.jsx');
 
 let App = React.createClass({
@@ -40,7 +37,7 @@ let App = React.createClass({
   render() {
     let {files} = this.state;
     return (
-      <div className="container">
+      <div className='container'>
         <FileUploader />
       </div>
     );

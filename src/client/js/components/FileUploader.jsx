@@ -13,13 +13,13 @@ let FileUploader = React.createClass({
       <div>
         <Panel header={this.props.label}>
           <form
-            className = "file-uploader"
-            id        = "uploadForm"
-            encType   = "multipart/form-data"
-            action    = "/upload"
-            method    = "post" >
-            <Input type="file" name="fileUpload" wrapperClassName="col-xs-6"/>
-            <Input type="submit" defaultValue="Upload" name="submit" bsStyle="primary" wrapperClassName="col-xs-6"/>
+            className = 'file-uploader'
+            id        = 'uploadForm'
+            encType   = 'multipart/form-data'
+            action    = '/upload'
+            method    = 'post' >
+            <Input type='file' name='fileUpload' wrapperClassName='col-xs-6'/>
+            <Input type='submit' defaultValue='Upload' name='submit' bsStyle='primary' wrapperClassName='col-xs-6'/>
           </form>
         </Panel>
       </div>
