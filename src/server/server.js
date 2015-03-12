@@ -2,6 +2,7 @@ var express = require("express");
 var multer = require('multer');
 var app = express();
 var done = false;
+var validRequest = false;
 
 // Serve root as static content
 app.use('/', express.static(__dirname + '/../../dist/'));
@@ -12,6 +13,9 @@ app.use(multer({
     return filename + Date.now();
   },
   onFileUploadStart: function (file) {
+    if (file.extension === 'mp3' && file.mimetype === 'application/mpeg') {
+      validRequest = true;
+    }
   },
   onFileUploadComplete: function (file) {
     done = true;
@@ -20,8 +24,11 @@ app.use(multer({
 
 app.post('/upload', function (req, res) {
 
-  if((Object.keys(req.files)).length === 0){
+  if ((Object.keys(req.files)).length === 0) {
     res.status(400).send('No file selected for upload');
+  }
+  if (!validRequest) {
+    res.status(400).send('Invalid file type');
   }
 
   if (done == true) {

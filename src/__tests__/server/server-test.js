@@ -13,12 +13,12 @@ describe('Server', function () {
       });
   });
 
-  it('should accept image files', function () {
+  it('should not accept files not of type mp3', function () {
     var superTest = require('supertest');
     superTest(app)
       .post('/upload')
       .attach('spacer', 'src/__tests__/fixtures/spacer.gif')
-      .expect(200)
+      .expect(400)
       .end(function(err){
         if (err) throw err;
       });
