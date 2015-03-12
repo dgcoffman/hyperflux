@@ -1,19 +1,22 @@
 var gulp = require('gulp');
 var jest = require('jest-cli');
+var jasmine = require('gulp-jasmine');
+
 
 var jestConfig = {
   rootDir: '.',
-  "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-  "testFileExtensions": [
+  testPathDirs: ['<rootDir>/src/__tests__/client/'],
+  scriptPreprocessor: "<rootDir>/node_modules/babel-jest",
+  testFileExtensions: [
     "es6",
     "js"
   ],
-  "moduleFileExtensions": [
+  moduleFileExtensions: [
     "js",
     "json",
     "es6"
   ],
-  "unmockedModulePathPatterns": [
+  unmockedModulePathPatterns: [
     "node_modules/react",
     "node_modules/object-assign",
     "node_modules/express",
@@ -24,12 +27,13 @@ var jestConfig = {
   ]
 };
 
-gulp.task('test-once', function(done) {
-  jest.runCLI({ config : jestConfig }, ".", function() {
+gulp.task('test-once', function (done) {
+  gulp.src('src/__tests__/server/**/*.js').pipe(jasmine());
+  jest.runCLI({config: jestConfig}, ".", function () {
     done();
   });
 });
 
-gulp.task('test', ['test-once'], function(done) {
-  gulp.watch(jestConfig.rootDir + "/src/**/*.{js,jsx}", [ 'test-once' ]);
+gulp.task('test', ['test-once'], function (done) {
+  gulp.watch(jestConfig.rootDir + "/src/**/*.{js,jsx}", ['test-once']);
 });
