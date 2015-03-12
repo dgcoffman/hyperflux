@@ -18,6 +18,8 @@ var jestConfig = {
     "node_modules/object-assign",
     "node_modules/express",
     "node_modules/supertest",
+    "node_modules/chai",
+    "node_modules/chai-http",
     "node_modules/multer"
   ]
 };

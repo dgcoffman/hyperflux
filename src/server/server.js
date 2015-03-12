@@ -4,7 +4,6 @@ var app = express();
 var done = false;
 var validRequest = false;
 
-// Serve root as static content
 app.use('/', express.static(__dirname + '/../../dist/'));
 
 app.use(multer({
@@ -13,9 +12,7 @@ app.use(multer({
     return filename + Date.now();
   },
   onFileUploadStart: function (file) {
-    if (file.extension === 'mp3' && file.mimetype === 'application/mpeg') {
-      validRequest = true;
-    }
+    validRequest = file.extension === 'mp3' && (file.mimetype === 'audio/mpeg' || file.mimetype === 'audio/mp3');
   },
   onFileUploadComplete: function () {
     done = true;
@@ -23,21 +20,17 @@ app.use(multer({
 }));
 
 app.post('/upload', function (req, res) {
-
   if ((Object.keys(req.files)).length === 0) {
-    res.status(400).send('No file selected for upload');
+    res.status(400).end('No file selected for upload');
   }
-  if (!validRequest) {
-    res.status(400).send('Invalid file type');
+  else if (!validRequest) {
+    res.status(400).end('Invalid file type');
   }
-
-  if (done === true) {
-    res.end('File uploaded.');
+  else if (done === true) {
+    res.status(200).end('File uploaded.');
   }
 });
 
-app.listen(3000, function () {
-  console.log('Working on port 3000');
-});
+app.listen(3000);
 
 module.exports = app;
