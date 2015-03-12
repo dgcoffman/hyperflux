@@ -10,7 +10,6 @@ describe('TaskList', function () {
       <TaskList />
     );
     var alertBox = TestUtils.findRenderedDOMComponentWithClass(taskListComponent, 'alert');
-    //console.log(alertBox.getDOMNode());
     expect(alertBox).toBeDefined();
     expect(alertBox).toBeDefined();
   });

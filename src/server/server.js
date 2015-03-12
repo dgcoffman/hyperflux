@@ -12,17 +12,19 @@ app.use(multer({
     return filename + Date.now();
   },
   onFileUploadStart: function (file) {
-    console.log(file.originalname + ' is starting ...')
   },
   onFileUploadComplete: function (file) {
-    console.log(file.fieldname + ' uploaded to  ' + file.path);
     done = true;
   }
 }));
 
 app.post('/api/photo', function (req, res) {
+
+  if((Object.keys(req.files)).length === 0){
+    res.status(400).send('No file selected for upload');
+  }
+
   if (done == true) {
-    console.log(req.files);
     res.end("File uploaded.");
   }
 });
@@ -30,3 +32,5 @@ app.post('/api/photo', function (req, res) {
 app.listen(3000, function () {
   console.log("Working on port 3000");
 });
+
+module.exports = app;

@@ -15,7 +15,10 @@ var jestConfig = {
   ],
   "unmockedModulePathPatterns": [
     "node_modules/react",
-    "node_modules/object-assign"
+    "node_modules/object-assign",
+    "node_modules/express",
+    "node_modules/supertest",
+    "node_modules/multer"
   ]
 };
 

@@ -19,6 +19,7 @@
     "jest-cli": "^0.4.0",
     "reactify": "^1.0.0",
     "require-dir": "^0.1.0",
+    "supertest": "^0.15.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^2.4.0"
