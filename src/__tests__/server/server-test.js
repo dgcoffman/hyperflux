@@ -45,5 +45,24 @@ describe('Server', function () {
         });
     });
   });
+
+  //describe('responds with files on the server', function () {
+  //  it('after I upload one', function (done) {
+  //    var filename = 'src/__tests__/fixtures/08 - Hunger Of The Pine.mp3';
+  //    chai.request(app)
+  //      .post('/upload')
+  //      .attach('uploadForm', filename)
+  //      .end(function (err, res) {
+  //        expect(res.status).toBe(200);
+  //        chai.request(app)
+  //          .get('/songs')
+  //          .end(function (err, res) {
+  //            expect(res.status).toBe(200);
+  //            expect(res.body).toContain('sum41.mp3');
+  //            cleanUp(done);
+  //          });
+  //      });
+  //  });
+  //});
 });
 

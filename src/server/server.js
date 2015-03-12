@@ -12,7 +12,9 @@ app.use(multer({
     return filename + Date.now();
   },
   onFileUploadStart: function (file) {
+    done = false;
     validRequest = file.extension === 'mp3' && (file.mimetype === 'audio/mpeg' || file.mimetype === 'audio/mp3');
+    if (!validRequest) { return false; }
   },
   onFileUploadComplete: function () {
     done = true;

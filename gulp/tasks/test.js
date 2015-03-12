@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var jest = require('jest-cli');
 var jasmine = require('gulp-jasmine');
-
+var rmdir = require('rimraf');
 
 var jestConfig = {
   rootDir: '.',
@@ -30,7 +30,12 @@ var jestConfig = {
 gulp.task('test-once', function (done) {
   gulp.src('src/__tests__/server/**/*.js').pipe(jasmine());
   jest.runCLI({config: jestConfig}, ".", function () {
-    done();
+    rmdir('uploads', function (err) {
+      if (err) {
+        console.log(err);
+      }
+      done();
+    });
   });
 });
 
