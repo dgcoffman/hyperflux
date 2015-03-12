@@ -10,7 +10,7 @@ let App = React.createClass({
 
   getInitialState() {
     return {
-      tasks: []
+      files: []
     }
   },
 
@@ -38,17 +38,10 @@ let App = React.createClass({
   },
 
   render() {
-    let {tasks} = this.state;
+    let {files} = this.state;
     return (
       <div className="container">
-        <Jumbotron>
-          <FileUploader />
-        </Jumbotron>
-
-        <TaskList tasks={tasks} />
-
-        <Button onClick={this.handleAddNewClick} bsStyle="primary">Add New</Button>
-        <Button onClick={this.handleClearListClick} bsStyle="danger">Clear List</Button>
+        <FileUploader />
       </div>
     );
   }

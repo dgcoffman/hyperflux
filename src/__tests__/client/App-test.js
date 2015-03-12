@@ -1,16 +1,24 @@
 jest.dontMock('../../client/js/components/App.jsx');
 
 describe('App', function () {
-  it('should have a task list with two buttons', function () {
-    var React = require('react/addons');
-    var App = require('../../client/js/components/App.jsx');
-    var TestUtils = React.addons.TestUtils;
+  var React = require('react/addons');
+  var App = require('../../client/js/components/App.jsx');
+  var TestUtils = React.addons.TestUtils;
 
+  it('should render a file upload form', function(){
     var app = TestUtils.renderIntoDocument(
       <App  />
     );
-    var taskList = TestUtils.scryRenderedDOMComponentsWithTag(app, 'button');
-    expect(taskList).toBeDefined();
-    expect(taskList.length).toBe(2);
+    var fileUploader = TestUtils.findRenderedDOMComponentWithClass(app, 'file-uploader');
+    expect(fileUploader).toBeDefined();
+
+  });
+
+  it('should have state with zero files', function(){
+    var app = TestUtils.renderIntoDocument(
+      <App  />
+    );
+    expect(app.state.files).toBeDefined();
+    expect(app.state.files.length).toBe(0);
   });
 });

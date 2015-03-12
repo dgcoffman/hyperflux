@@ -9,7 +9,7 @@ describe('Task', function () {
     var taskComponent = TestUtils.renderIntoDocument(
       <Task  />
     );
-    var task = TestUtils.scryRenderedDOMComponentsWithTag(taskComponent, 'checkbox');
+    var task = TestUtils.findRenderedDOMComponentWithTag(taskComponent, 'input');
     expect(task).toBeDefined();
   });
 });

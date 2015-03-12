@@ -18,7 +18,7 @@ app.use(multer({
   }
 }));
 
-app.post('/api/photo', function (req, res) {
+app.post('/upload', function (req, res) {
 
   if((Object.keys(req.files)).length === 0){
     res.status(400).send('No file selected for upload');

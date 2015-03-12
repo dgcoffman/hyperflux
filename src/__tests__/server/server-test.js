@@ -16,7 +16,7 @@ describe('Server', function () {
   it('should accept image files', function () {
     var superTest = require('supertest');
     superTest(app)
-      .post('/api/photo')
+      .post('/upload')
       .attach('spacer', 'src/__tests__/fixtures/spacer.gif')
       .expect(200)
       .end(function(err){
@@ -27,7 +27,7 @@ describe('Server', function () {
   it('should not accept empty requests', function () {
     var superTest = require('supertest');
     superTest(app)
-      .post('/api/photo')
+      .post('/upload')
       .expect(400)
       .end(function(err){
         if (err) throw err;
