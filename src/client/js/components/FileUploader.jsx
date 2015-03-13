@@ -45,7 +45,7 @@ let FileUploader = React.createClass({
 
   render() {
     return (
-      <div id="dropzone" className='vcenter' onDrop={this.onDrop} onDragOver={this.onDragOver} onDragEnter={this.onDragEnter}>Drag a file here to begin</div>
+      <div id="dropzone" className='file-uploader vcenter' onDrop={this.onDrop} onDragOver={this.onDragOver} onDragEnter={this.onDragEnter}>Drag a file here to begin</div>
     );
   }
 

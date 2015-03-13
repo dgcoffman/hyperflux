@@ -1,4 +1,5 @@
 jest.dontMock('../../client/js/components/App.jsx');
+jest.dontMock('../../client/js/components/App.jsx');
 
 describe('App', function () {
   var React = require('react/addons');
@@ -14,11 +15,4 @@ describe('App', function () {
 
   });
 
-  it('should have state with zero files', function(){
-    var app = TestUtils.renderIntoDocument(
-      <App  />
-    );
-    expect(app.state.files).toBeDefined();
-    expect(app.state.files.length).toBe(0);
-  });
 });

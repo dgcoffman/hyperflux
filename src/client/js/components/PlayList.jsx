@@ -1,7 +1,5 @@
 const React = require('react');
 const Song = require('./Song.jsx');
-const ListGroup = require('react-bootstrap/lib/ListGroup');
-const Alert = require('react-bootstrap/lib/Alert');
 
 let PlayList = React.createClass({
   getDefaultProps() {
@@ -10,9 +8,9 @@ let PlayList = React.createClass({
     };
   },
 
-  componentWillMount: function() {
+  componentWillMount: function () {
     this.firebaseRef = new Firebase("https://ReactFireTodoApp.firebaseio.com/items/");
-    this.firebaseRef.on("child_added", function(dataSnapshot) {
+    this.firebaseRef.on("child_added", function (dataSnapshot) {
       this.items.push(dataSnapshot.val());
       this.setState({
         items: this.items
@@ -20,7 +18,7 @@ let PlayList = React.createClass({
     }.bind(this));
   },
 
-  componentWillUnmount: function() {
+  componentWillUnmount: function () {
     this.firebaseRef.off();
   },
 

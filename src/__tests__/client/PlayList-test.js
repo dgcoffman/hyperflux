@@ -9,7 +9,5 @@ describe('PlayList', function () {
     var playListComponent = TestUtils.renderIntoDocument(
       <PlayList />
     );
-    var alertBox = TestUtils.findRenderedDOMComponentWithClass(playListComponent, 'alert');
-    expect(alertBox).toBeDefined();
   });
 });
