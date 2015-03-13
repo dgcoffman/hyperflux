@@ -1,30 +1,54 @@
 const React = require('react');
-const Input = require('react-bootstrap/lib/Input');
-const Panel = require('react-bootstrap/lib/Panel');
 
 let FileUploader = React.createClass({
-  getDefaultProps: function () {
-    return {
-      label: 'Upload File'
+
+  sendFile(file) {
+    var uri = "/playlists";
+    var xhr = new XMLHttpRequest();
+    var fd = new FormData();
+
+    xhr.open("POST", uri, true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        // Handle response.
+        alert(xhr.responseText); // handle response.
+        // redirect to playlist view
+      }
     };
+    fd.append('myFile', file);
+    // Initiate a multipart/form-data upload
+    xhr.send(fd);
   },
+
+  onDragOver(event) {
+    event.dataTransfer.dropEffect = "copy";
+    event.stopPropagation();
+    event.preventDefault();
+
+  },
+
+  onDragEnter(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+  },
+
+  onDrop(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    var filesArray = event.dataTransfer.files;
+    for (var i = 0; i < filesArray.length; i++) {
+      this.sendFile(filesArray[i]);
+    }
+  },
+
   render() {
     return (
-      <div>
-        <Panel header={this.props.label}>
-          <form
-            className = 'file-uploader'
-            id        = 'uploadForm'
-            encType   = 'multipart/form-data'
-            action    = '/upload'
-            method    = 'post' >
-            <Input type='file' name='fileUpload' wrapperClassName='col-xs-6'/>
-            <Input type='submit' defaultValue='Upload' name='submit' bsStyle='primary' wrapperClassName='col-xs-6'/>
-          </form>
-        </Panel>
-      </div>
+      <div id="dropzone" className='vcenter' onDrop={this.onDrop} onDragOver={this.onDragOver} onDragEnter={this.onDragEnter}>Drag a file here to begin</div>
     );
   }
+
 });
 
 module.exports = FileUploader;

@@ -1,0 +1,33 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+}
+
+#main {
+  height: 100%;
+}
+
+#dropzone {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  font-size: 32px;
+  text-shadow: 1px 1px 1px rgba(161, 161, 161, 0.54);
+}
+
+
+.vcenter:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.vcenter :first-child {
+  display:inline-block;
+}

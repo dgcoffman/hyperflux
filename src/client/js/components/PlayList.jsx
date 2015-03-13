@@ -10,6 +10,20 @@ let PlayList = React.createClass({
     };
   },
 
+  componentWillMount: function() {
+    this.firebaseRef = new Firebase("https://ReactFireTodoApp.firebaseio.com/items/");
+    this.firebaseRef.on("child_added", function(dataSnapshot) {
+      this.items.push(dataSnapshot.val());
+      this.setState({
+        items: this.items
+      });
+    }.bind(this));
+  },
+
+  componentWillUnmount: function() {
+    this.firebaseRef.off();
+  },
+
   render() {
     let {songs} = this.props;
 
