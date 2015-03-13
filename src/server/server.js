@@ -6,11 +6,11 @@ var songs = [];
 
 var data = new Firebase('https://fiery-inferno-9101.firebaseio.com/');
 
-//data.on("value", function (snapshot) {
-//  songs = snapshot.val();
-//}, function (errorObject) {
-//  console.log("The read failed: " + errorObject.code);
-//});
+data.on("value", function (snapshot) {
+  songs = snapshot.val();
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
 
 app.use('/', express.static(__dirname + '/../../dist/'));
 
