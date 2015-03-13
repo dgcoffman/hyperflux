@@ -33,6 +33,7 @@
   "dependencies": {
     "babel-jest": "^4.0.0",
     "express": "^4.12.2",
+    "firebase": "^2.2.2",
     "flux": "^2.0.1",
     "multer": "^0.1.8",
     "object-assign": "^2.0.0",

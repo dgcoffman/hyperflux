@@ -27,8 +27,8 @@ var jestConfig = {
   ]
 };
 
-gulp.task('test-once', function (done) {
-  gulp.src('src/__tests__/server/**/*.js').pipe(jasmine());
+gulp.task('test-client', function (done) {
+
   jest.runCLI({config: jestConfig}, ".", function () {
     rmdir('uploads', function (err) {
       if (err) {
@@ -39,6 +39,10 @@ gulp.task('test-once', function (done) {
   });
 });
 
-gulp.task('test', ['test-once'], function (done) {
+gulp.task('test-server', function () {
+  return gulp.src('src/__tests__/server/**/*.js').pipe(jasmine({verbose: true}));
+});
+
+gulp.task('test', ['test-client', 'test-server'], function (done) {
   gulp.watch(jestConfig.rootDir + "/src/**/*.{js,jsx}", ['test-once']);
 });
