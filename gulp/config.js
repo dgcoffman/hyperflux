@@ -32,6 +32,10 @@ module.exports = {
     src: 'src/client/index.html',
     dest: dest
   },
+  deps: {
+    src: ['node_modules/reactfire/dist/reactfire.min.js'],
+    dest: dest + '/js/lib/'
+  },
   watch: {
     src: 'src/client/**/*.*',
     tasks: ['build']
