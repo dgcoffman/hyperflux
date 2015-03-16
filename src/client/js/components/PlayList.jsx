@@ -2,6 +2,7 @@ const React = require('react');
 const Song = require('./Song.jsx');
 
 let PlayList = React.createClass({
+  mixins: [ReactFireMixin],
   getDefaultProps() {
     return {
       songs: []
@@ -9,13 +10,8 @@ let PlayList = React.createClass({
   },
 
   componentWillMount: function () {
-    this.firebaseRef = new Firebase("https://ReactFireTodoApp.firebaseio.com/items/");
-    this.firebaseRef.on("child_added", function (dataSnapshot) {
-      this.items.push(dataSnapshot.val());
-      this.setState({
-        items: this.items
-      });
-    }.bind(this));
+    var firebaseRef = new Firebase("https://fiery-inferno-9101.firebaseio.com/");
+    this.bindAsArray(firebaseRef, "items");
   },
 
   componentWillUnmount: function () {
@@ -27,10 +23,7 @@ let PlayList = React.createClass({
 
     if (songs.length === 0) {
       return (
-        <Alert bsStyle="warning">
           <strong>You have no songs</strong>
-          Upload some.
-        </Alert>
       );
     }
 

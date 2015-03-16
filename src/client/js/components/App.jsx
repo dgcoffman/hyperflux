@@ -1,10 +1,13 @@
 const React = require('react');
-const FileUploader = require('./FileUploader.jsx');
+
+const Router = require('react-router');
+
+var RouteHandler = Router.RouteHandler;
 
 let App = React.createClass({
   render() {
     return (
-        <FileUploader />
+        <RouteHandler />
     );
   }
 });
