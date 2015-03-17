@@ -8,15 +8,10 @@ var DefaultRoute = Router.DefaultRoute;
 var Link = Router.Link;
 var Route = Router.Route;
 
-
-
 var routes = (
-  // Need a root level handler route and then an "index" route that shows the file uploader.
   <Route handler={App}>
 
-    <Route name="playlist" handler={PlayList}>
-    </Route>
-
+    <Route name="playlist" path="/playlist/:playListId"  handler={PlayList} />
     <Route name="upload" handler={FileUploader}/>
     <DefaultRoute handler={FileUploader}/>
 

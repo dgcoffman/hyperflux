@@ -28,7 +28,6 @@ var jestConfig = {
 };
 
 gulp.task('test-client', function (done) {
-
   jest.runCLI({config: jestConfig}, ".", function () {
     rmdir('uploads', function (err) {
       if (err) {
@@ -44,5 +43,5 @@ gulp.task('test-server', function () {
 });
 
 gulp.task('test', ['test-client', 'test-server'], function (done) {
-  gulp.watch(jestConfig.rootDir + "/src/**/*.{js,jsx}", ['test-once']);
+  gulp.watch(jestConfig.rootDir + "/src/**/*.{js,jsx}", ['test-client']);
 });

@@ -1,13 +1,20 @@
 const React = require('react');
-
-const Router = require('react-router');
-
-var RouteHandler = Router.RouteHandler;
+const RouteHandler = require('react-router').RouteHandler;
 
 let App = React.createClass({
-  render() {
+  getHandlerKey: function () {
+    var childDepth = 1; // assuming App is top-level route
+    var key = this.getRoutes()[childDepth].name;
+    var id = this.getParams().id;
+    if (id) { key += id; }
+    return key;
+  },
+
+  render: function () {
     return (
-        <RouteHandler />
+      <div>
+        <RouteHandler key={this.getHandlerKey()} />
+      </div>
     );
   }
 });

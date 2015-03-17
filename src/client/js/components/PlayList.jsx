@@ -1,11 +1,21 @@
 const React = require('react');
 const Song = require('./Song.jsx');
+const Firebase = require('firebase');
+const ReactFireMixin = require('reactfire');
+const RouterMixin = require('react-router').State;
 
 let PlayList = React.createClass({
-  mixins: [ReactFireMixin],
+  mixins: [ReactFireMixin, RouterMixin],
+  getInitialState() {
+    return {
+      playListId: ''
+    }
+  },
+
   getDefaultProps() {
     return {
-      songs: []
+      songs: [],
+      playListId: ''
     };
   },
 
